@@ -36,21 +36,22 @@
        	   <p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
 
 
-		<?php
-			if($_SERVER["REQUEST_METHOD"] == 'POST'){
+	<?php
+	
+		if($_SERVER["REQUEST_METHOD"] == 'POST'){
 			if(!empty($errores)){
-				echo "<div class='alert alert-info'><ul>";
+				echo "<div class='alert alert-danger'><ul>";
 				foreach ($errores as $key => $error) {
 					echo "<li>" . $error . "</li>";
 				}
 				echo "</ul></div>";
 			}else{
-				echo "<div class='alert alert-info'><ul>";
+				echo "<div class='alert alert-danger'><ul>";
 				echo "<li>" . $primerNombre . "</li><li>". $apellidos . "</li><li>" . $email . "</li><li>" . $sujeto . "</li><li>" . $mensaje . "</li>";
 				echo "</ul></div>";
 			}
-			}		
-		?>
+		}		
+	?>
 
 
 	       <form class="form-horizontal" method ="post">

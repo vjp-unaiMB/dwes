@@ -1,11 +1,10 @@
 <?php
-	
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
-		$primerNombre = trim($_POST("PrimerNombre"));
-		$apellidos = trim($_POST("Apellidos"));	
-		$email = trim($_POST("Email"));
-		$sujeto = trim($_POST("Subjet"));
-		$mensaje = trim($_POST("Mensaje"));
+		$primerNombre = trim($_POST["PrimerNombre"]);
+		$apellidos = trim($_POST["Apellidos"]);	
+		$email = trim($_POST["Email"]);
+		$sujeto = trim($_POST["Subjet"]);
+		$mensaje = trim($_POST["Texto"]);
 
 		$camposObligatorios = ["First Name" => $primerNombre,"Email" => $email,"Subject" => $sujeto];
         $errores;
