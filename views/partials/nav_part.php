@@ -4,7 +4,7 @@
     require __DIR__ .'/../utils/utils.php';
 ?>
 
-<nav class="navbar navbar-fixed-top navbar-default">
+  <nav class="navbar navbar-fixed-top navbar-default">
      <div class="container">
        <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
