@@ -51,18 +51,20 @@
         <!--second category pictures -->
 
           <?php 
-          $idCategoria = "category2";   
-          $active = "";
-          include __DIR__. '/partials/imagegallery.part.php'?>
+            $idCategoria = "category2";   
+            $active = "";
+            include __DIR__. '/partials/imagegallery.part.php';
+          ?>
 
         <!-- End of second category pictures -->
 
         <!-- Third Category Pictures -->
 
         <?php 
-        $idCategoria = "category3";  
-        $active = ""; 
-        include __DIR__. '/partials/imagegallery.part.php'?>
+          $idCategoria = "category3";  
+          $active = ""; 
+          include __DIR__. '/partials/imagegallery.part.php';
+        ?>
 
         <!-- Third Category Pictures -->
 
