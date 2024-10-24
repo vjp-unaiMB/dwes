@@ -1,4 +1,6 @@
 <?php
+	require 'views/utils/utils.php';
+
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
 		$primerNombre = trim($_POST["PrimerNombre"]);
 		$apellidos = trim($_POST["Apellidos"]);	
