@@ -1,4 +1,4 @@
 <?php
-    require 'views/utils/utils.php';
+    require 'utils/utils.php';
     require 'views/about.view.php';
 ?>
