@@ -63,8 +63,18 @@ class File{
 
     public function copyFile (string $rutaOrigen, string $rutaDestino){
 
-        $origen = $rutaOrigwn
+        $origen = $rutaOrigen . $this->fileName;
+        $destino = $rutaDestino . $this->fileName;
 
+        if(is_file($origen)===false){
+            throw new FileException("No existe el fichero $origen que intentas copiar");
+        }
+        if(is_file($destino)===true){
+            throw new FileException("El fichero $destino ya existe y no se puede sobreescribir");
+        }
+        if(copy($origen,$destino)===false){
+            throw new FileException("No se ha podido copiar el fichero $origen a $destino");
+        }
     }
 }
 ?>

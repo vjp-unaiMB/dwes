@@ -19,6 +19,8 @@
             <li class="lien <?php  if(esOpcionMenuActiva("/about.php")){ echo " active";}?>" ><a href="about.php"> <i class="fa fa-bookmark sr-icons"></i> About</a></li>
             <li class="lien <?php  if(existeOpcionActivaEnArray(["/blog.php","/single_post.php"])){ echo " active";}?>" ><a href="blog.php"> <i class="fa fa-file-text sr-icons"></i> Blog</a></li>
             <li class="lien <?php  if(esOpcionMenuActiva("/contact.php")){ echo " active";}?>" ><a href="contact.php">  <i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+            <li class="lien <?php  if(esOpcionMenuActiva("/galery.php")){ echo " active";}?>" ><a href="galery.php">  <i class="fa fa-solid fa-image"></i> Galery</a></li>
+            <li class="lien <?php  if(esOpcionMenuActiva("/partners.php")){ echo " active";}?>" ><a href="partners.php">  <i class="fa fa-solid fa-handshake"></i> Asociados</a></li>
           </ul>
        </div>
      </div>
