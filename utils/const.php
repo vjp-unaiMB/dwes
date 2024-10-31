@@ -1,0 +1,8 @@
+<?php
+    $errores = [];
+
+    function getErrorString(){
+
+        
+    }
+?>

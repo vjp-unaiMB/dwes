@@ -49,10 +49,11 @@ class File{
         $this->fileName=$this->file['name'];
         $ruta=$rutaDestino.$this->fileName;
 
-        if(is_file($ruta)==true){
-            $fechaActual=date('dmYHis');
-            $this->fileName=$this->fileName.'_'.$fechaActual;
+        $numCopia=1;
+        while(is_file($ruta)==true){
+            $this->fileName=str_replace($this->fileName,".","(".$numCopia.")");
             $ruta=$rutaDestino.$this->fileName;
+            $numCopia++;
         }
 
         if(move_uploaded_file($this->file['tmp_name'],$ruta)===false){
