@@ -41,7 +41,30 @@
                 </form>
                 <hr class="divider">
                 <div class="imagenes_galeria">
-	       
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Visualizaciones</th>
+                                <th scope="col">Likes</th>
+                                <th scope="col">Descargas</th>
+                            </tr>
+                        </thead>
+                        <?php foreach ($imagenes as $imagen):?>
+                            <tr>
+                                <td>
+                                    <img src="<?=$imagen->getUrlGalery() ?>",
+                                    alt="<?=$imagen->getDescripcion() ?>"
+                                    title="<?=$imagen->getDescripcion() ?>">
+                                </td>
+                                <td><?=$imagen->getNumVisualizaciones()?></td>
+                                <td><?=$imagen->getNumLikes()?></td>
+                                <td><?=$imagen->getNumDownloads()?></td>
+                            </tr>
+                            <?php endforeach?>
+                        </tbody>
+                    </table>    
 	            </div>
 	        </div>   
    	    </div>
