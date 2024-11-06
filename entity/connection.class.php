@@ -2,18 +2,18 @@
 
 
 class Connection{
-    public static function make(){
-        $option=[
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",//Para que utilice laencriptación utf8
-            PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,//para cuando se produzca un error
-
-
-            PDO::ATTR_PERSISTENT=>true
-        ];
+    public static function make($config){
         try{
-            $connection = new PDO('mysql:host=dwes.local;dbname=proyecto;charset=utf8','userProyecto','unai2003',$option);
-        }catch(PDOException $PDOException){
-            die($PDOException->getMessage());//Detiene la ejecución delscript.Elstring se muestra.
+            $config = App::get('config')['database'];
+
+            $connection = new PDO(
+                $config['connection'] . ';dbname=' . $config['name'],
+                $config['username'],$config['password'],
+                $config['options']
+            );
+        }
+        catch(PDOException $PDOException){
+            throw new AppException("No se ha podido crear la conexión a la BD") ;
         }
         return $connection;
     }
