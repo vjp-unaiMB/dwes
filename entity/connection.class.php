@@ -1,8 +1,8 @@
 <?php
 
-
+require __DIR__ . '/../entity/app.class.php';
 class Connection{
-    public static function make($config){
+    public static function make(){
         try{
             $config = App::get('config')['database'];
 

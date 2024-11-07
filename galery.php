@@ -13,39 +13,31 @@ $mensaje='';
 try{
     $config = require_once 'app/config.php';
     App::bind('config',$config);
-    $connection = App::getConnection();
+    $queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
+
     if ($_SERVER['REQUEST_METHOD']==='POST'){
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
         $tiposAceptados=['image/jpeg','image/jpg','image/gif','image/png'];
 
         $imagen=new File('imagen',$tiposAceptados); 
         
-        $imagen -> saveUploadFile(imagenGaleria::RUTA_IMAGENES_GALLERY);
-        $imagen->copyFile(imagenGaleria::RUTA_IMAGENES_GALLERY,imagenGaleria::RUTA_IMAGENES_PORTFOLIO);
+        $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
+        $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
         
-        $sql = "INSERT INTO imagenes (nombre,descripcion) values (:nombre,:descreipcion)";
-        $pdoStatement = $connection->prepare($sql);
-        $parametros = [':nombre'=>$imagen->getFileName(), ':descreipcion'=>$descripcion];
-        $response = $pdoStatement->execute($parametros);
-        if($response === false){
-            $errores[] = "No se ha podido guardar la imagen en la base de datos";
-        }else{
-            $descripcion = '';
-            $mensaje= 'Imagen guardada';
-        }
-        
-
+        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion);
+        $queryBuilder->save($imagenGaleria);
+        $descripcion='';
+        $mensaje = "Imagen guardada";
     }
-    $queryBuilder = new QueryBuilder($connection);
-    $imagenes = $queryBuilder->findAll('imagenes','ImagenGaleria');
 }catch(FileException $exception){
     $errores[]=$exception->getMessage();
-}catch(QuearyException $exception){
+}catch(QueryException $exception){
     $errores[]=$exception->getMessage();
 }catch (AppException $exception){
     $errores[] = $exception->getMessage();
 }
-
-    
+finally{
+    $imagenes = $queryBuilder->findAll();
+}
 require 'views/galery.view.php';
 ?>

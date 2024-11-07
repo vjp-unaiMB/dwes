@@ -1,4 +1,5 @@
 <?php
+require_once 'database/IEntity.class.php';
     class imagenGaleria {
 
         const RUTA_IMAGENES_PORTFOLIO='images/index/portfolio/';
@@ -72,6 +73,15 @@
             return self::RUTA_IMAGENES_GALLERY.$this->getNombre();
         }
 
-        
+        public function toArray():array{
+            return[
+                'id' => $this->getId(),
+                'nombre' => $this->getNombre(),
+                'descreipcion' => $this->getDescripcion(),
+                'numVisualizaciones' => $this->getNumVisualizaciones(),
+                'numLikes'=> $this->getNumLikes(),
+                'numDownloads' => $this->getNumDownloads()
+            ];
+        }
     }
 ?>
