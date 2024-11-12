@@ -5,6 +5,9 @@ require 'entity/imagenGaleria.class.php';
 require 'entity/connection.class.php';
 require 'entity/queryBuilder.class.php';
 require 'exceptions/AppException.class.php';
+require 'repository/imagenGaleriaRepository.class.php';
+require 'repository/CategoriaRepository.class.php';
+require 'Categoria.class.php';
 
 $errores = [];
 $descripcion = '';
@@ -14,9 +17,11 @@ try{
     $config = require_once 'app/config.php';
     App::bind('config',$config);
     $queryBuilder = new QueryBuilder('imagenes','ImagenGaleria');
+    $categoriaRepository = new CategoriaRepository();
 
     if ($_SERVER['REQUEST_METHOD']==='POST'){
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
+        $categoria = trim(htmlspecialchars($_POST['categoria']));
         $tiposAceptados=['image/jpeg','image/jpg','image/gif','image/png'];
 
         $imagen=new File('imagen',$tiposAceptados); 
@@ -24,8 +29,8 @@ try{
         $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
         $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
         
-        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion);
-        $queryBuilder->save($imagenGaleria);
+        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,$categoria);
+        $imagenRepository->save($imagenGaleria);
         $descripcion='';
         $mensaje = "Imagen guardada";
     }
@@ -38,6 +43,7 @@ try{
 }
 finally{
     $imagenes = $queryBuilder->findAll();
+    $categorias = $categoriaRepository->findAll();
 }
 require 'views/galery.view.php';
 ?>

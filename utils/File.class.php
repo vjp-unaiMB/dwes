@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/../exceptions/FileException.class.php';
+require_once __DIR__.'/../exceptions/FileException.class.php';
 class File{
     private $file;
     private $fileName;
@@ -51,7 +51,7 @@ class File{
 
         $numCopia=1;
         while(is_file($ruta)==true){
-            $this->fileName=str_replace($this->fileName,".","(".$numCopia.")");
+            $this->fileName=str_replace($this->fileName,"(".$numCopia.").",".");
             $ruta=$rutaDestino.$this->fileName;
             $numCopia++;
         }

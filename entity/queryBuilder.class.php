@@ -1,6 +1,6 @@
 <?php
-require __DIR__.'/../exceptions/QueryException.class.php';
-require __DIR__. '/../entity/app.class.php';
+require_once __DIR__.'/../exceptions/QueryException.class.php';
+require_once __DIR__. '/../entity/app.class.php';
 
 class QueryBuilder{
     private $connection;
@@ -35,6 +35,18 @@ class QueryBuilder{
         }
         catch(PDOException $exception){
             throw new QueryException('Error al insertar en la BD');
+        }
+    }
+
+    public function executeTransaction(callable $fnExecuteQuerys){
+        try{
+            $this->connection->beginTransaction();
+            $fnExecuteQuerys();
+
+            $this->connection->commit();
+        }catch (PDOException $PDOException){
+            $this->connection->rollBack();
+            throw new QueryException("No se ha podido realizar la operación");
         }
     }
 }

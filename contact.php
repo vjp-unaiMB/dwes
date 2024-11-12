@@ -1,5 +1,5 @@
 <?php
-	require 'utils/utils.php';
+	require_once 'utils/utils.php';
 
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
 		$primerNombre = trim($_POST["PrimerNombre"]);

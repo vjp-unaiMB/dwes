@@ -1,23 +1,23 @@
 <?php
 
-require __DIR__ . '/../entity/app.class.php';
-class Connection{
-    public static function make(){
-        try{
-            $config = App::get('config')['database'];
+    require_once __DIR__ . '/../entity/app.class.php';
+    class Connection{
+        public static function make(){
+            try{
+                $config = App::get('config')['database'];
 
-            $connection = new PDO(
-                $config['connection'] . ';dbname=' . $config['name'],
-                $config['username'],$config['password'],
-                $config['options']
-            );
+                $connection = new PDO(
+                    $config['connection'] . ';dbname=' . $config['name'],
+                    $config['username'],$config['password'],
+                    $config['options']
+                );
+            }
+            catch(PDOException $PDOException){
+                throw new AppException("No se ha podido crear la conexión a la BD") ;
+            }
+            return $connection;
         }
-        catch(PDOException $PDOException){
-            throw new AppException("No se ha podido crear la conexión a la BD") ;
-        }
-        return $connection;
     }
-}
 
 
 ?>

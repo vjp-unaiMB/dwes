@@ -1,6 +1,6 @@
 <?php
-    require 'utils/utils.php';
-    require 'entity/ImagenGaleria.class.php';
+    require_once 'utils/utils.php';
+    require_once 'entity/ImagenGaleria.class.php';
 
     $imagenes = [];
     $asociados = [];

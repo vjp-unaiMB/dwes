@@ -1,6 +1,6 @@
-<?php include __DIR__.'/partials/inicio-doc.part.php'?>
+<?php require_once __DIR__.'/partials/inicio-doc.part.php'?>
 
-<?php include __DIR__.'/partials/nav_part.php'?>
+<?php require_once __DIR__.'/partials/nav_part.php'?>
 
 <!-- Principal Content Start-->
    <div id="about">
