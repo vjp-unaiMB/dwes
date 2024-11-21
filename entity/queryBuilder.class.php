@@ -2,7 +2,7 @@
 require_once __DIR__.'/../exceptions/QueryException.class.php';
 require_once __DIR__. '/../entity/app.class.php';
 
-class QueryBuilder{
+abstract class QueryBuilder{
     private $connection;
     private $table;
     private $classEntity;

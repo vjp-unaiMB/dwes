@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__.'/../exceptions/AppException.class.php';
+    
     class App{
         private static $container=[];
 

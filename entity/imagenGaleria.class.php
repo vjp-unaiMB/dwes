@@ -1,6 +1,6 @@
 <?php
     require_once 'database/IEntity.class.php';
-    class imagenGaleria {
+    class imagenGaleria implements IEntity {
 
         const RUTA_IMAGENES_PORTFOLIO='images/index/portfolio/';
         const RUTA_IMAGENES_GALLERY='images/index/gallery/';
@@ -37,8 +37,7 @@
         }
         public function getNumLikes() {
             return $this->numLikes;
-        }
-        
+        }  
         public function getNumDownloads() {
             return $this->numDownloads;
         }
@@ -48,8 +47,8 @@
         public function getUrlGallery():string{
             return self::RUTA_IMAGENES_GALLERY.$this->getNombre();
         }
-        public function getCategoria():int{
-            return self::RUTA_IMAGENES_GALLERY.$this->getCategoria();
+        public function getCategoria(){
+            return $this->categoria;
         }        
         
         public function setId( $id): void {
@@ -81,10 +80,11 @@
             return[
                 'id' => $this->getId(),
                 'nombre' => $this->getNombre(),
-                'descreipcion' => $this->getDescripcion(),
+                'descripcion' => $this->getDescripcion(),
                 'numVisualizaciones' => $this->getNumVisualizaciones(),
                 'numLikes'=> $this->getNumLikes(),
-                'numDownloads' => $this->getNumDownloads()
+                'numDownloads' => $this->getNumDownloads(),
+                'categoria' => $this->getCategoria()
             ];
         }
     }
