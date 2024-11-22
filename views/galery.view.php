@@ -36,7 +36,7 @@
                             <label class="label-control">Categoria</label>
                             <select class="form-control" name="categoria">
                                 <?php foreach ($categorias as $categoria) : ?>
-                                    <option calue="<?= $categoria->getId() ?>">
+                                    <option value="<?= $categoria->getId() ?>">
                                         <?= $categoria-> getNombre() ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -64,20 +64,21 @@
                                 <th scope="col">Descargas</th>
                             </tr>
                         </thead>
-                        <?php foreach ($imagenes as $imagen):?>
+                        <?php foreach ($imagenes as $imagen) : ?>
                             <tr>
                                 <th scope="row"><?=$imagen->getId()?></th>
                                 <td>
                                     <img src="<?=$imagen->getUrlGallery() ?>"
-                                    alt="<?=$imagen->getDescripcion() ?>"
-                                    title="<?=$imagen->getDescripcion() ?>" width="100px">
+                                         alt="<?=$imagen->getDescripcion() ?>"
+                                         title="<?=$imagen->getDescripcion() ?>" 
+                                         width="100px">
                                 </td>
                                 <td><?= $imagen->getCategoria()?></td>
-                                <td><?=$imagen->getNumVisualizaciones()?></td>
-                                <td><?=$imagen->getNumLikes()?></td>
-                                <td><?=$imagen->getNumDownloads()?></td>
+                                <td><?= $imagen->getNumVisualizaciones()?></td>
+                                <td><?= $imagen->getNumLikes()?></td>
+                                <td><?= $imagen->getNumDownloads()?></td>
                             </tr>
-                        <?php endforeach?>
+                        <?php endforeach;?>
                         </tbody>
                     </table>    
 	            </div>

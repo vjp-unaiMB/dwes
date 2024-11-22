@@ -30,7 +30,7 @@ try{
         $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
         $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
         
-        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,categoria: $categoria);
+        $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,$categoria);
         $imagenRepository->save($imagenGaleria);
         $descripcion='';
         $mensaje = "Imagen guardada";

@@ -11,7 +11,9 @@
             $this->numImagenes = $numImagenes;
         }
 
-        public function getId() {return $this->id;}
+        public function getId() {
+            return $this->id;
+        }
 
         public function getNombre() {
             return $this->nombre;
