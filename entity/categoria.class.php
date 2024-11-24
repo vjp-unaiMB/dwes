@@ -11,7 +11,7 @@
             $this->numImagenes = $numImagenes;
         }
 
-        public function getId() {
+        public function getId():int {
             return $this->id;
         }
 
@@ -35,8 +35,7 @@
             $this->numImagenes = $numImagenes;
         }
 
-        public function toArray(): array
-        {
+        public function toArray(): array{
             return [
                 'id'=> $this->getId(),
                 'nombre'=> $this->getNombre(),

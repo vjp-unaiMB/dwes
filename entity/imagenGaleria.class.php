@@ -1,6 +1,6 @@
 <?php
     require_once 'database/IEntity.class.php';
-    class imagenGaleria implements IEntity {
+    class ImagenGaleria implements IEntity {
 
         const RUTA_IMAGENES_PORTFOLIO='images/index/portfolio/';
         const RUTA_IMAGENES_GALLERY='images/index/gallery/';

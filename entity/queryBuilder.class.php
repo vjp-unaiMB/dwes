@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__.'/../exceptions/QueryException.class.php';
-require_once __DIR__. '/../entity/app.class.php';
+require_once 'exceptions/QueryException.class.php';
+require_once 'entity/app.class.php';
 
 abstract class QueryBuilder{
     private $connection;
@@ -25,13 +25,13 @@ abstract class QueryBuilder{
         try{
             $parameters = $entity->toArray();
         
-            $sql = sprintf('insert into %s (%s) calues (%s)',
+            $sql = sprintf('insert into %s (%s) values (%s)',
             $this->table,
             implode(', ',array_keys($parameters)),
-            ':' . implode(',: ',array_keys($parameters)));
-
-            $statement = $this->connection->prepare($sql);
+            ':' . implode(',:',array_keys($parameters)));
+            $statement = $this->connection->prepare($sql);print_r($statement->errorInfo());print_r($parameters);
             $statement->execute($parameters);
+            
         }
         catch(PDOException $exception){
             throw new QueryException('Error al insertar en la BD');

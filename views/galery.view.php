@@ -68,10 +68,11 @@
                             <tr>
                                 <th scope="row"><?=$imagen->getId()?></th>
                                 <td>
-                                    <img src="<?=$imagen->getUrlGallery() ?>"
-                                         alt="<?=$imagen->getDescripcion() ?>"
-                                         title="<?=$imagen->getDescripcion() ?>" 
-                                         width="100px">
+                                    <img src="<?= $imagen->getUrlGallery() ?>"
+                                         alt="<?= $imagen->getDescripcion() ?>"
+                                         title="<?= $imagen->getDescripcion() ?>" 
+                                         width="100px"
+                                    >
                                 </td>
                                 <td><?= $imagen->getCategoria()?></td>
                                 <td><?= $imagen->getNumVisualizaciones()?></td>

@@ -26,14 +26,14 @@ try{
         $tiposAceptados=['image/jpeg','image/jpg','image/gif','image/png'];
 
         $imagen=new File('imagen',$tiposAceptados); 
-        
+
         $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
         $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
-        
+
         $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,$categoria);
         $imagenRepository->save($imagenGaleria);
         $descripcion='';
-        $mensaje = "Imagen guardada";
+        $mensaje = "Imagen guardada ";
     }
 }catch(FileException $exception){
     $errores[]=$exception->getMessage();
