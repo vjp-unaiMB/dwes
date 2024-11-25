@@ -74,7 +74,7 @@
                                          width="100px"
                                     >
                                 </td>
-                                <td><?= $imagen->getCategoria()?></td>
+                                <td><?= $imagenRepository->getCategoria($imagen)->getNombre() ?></td>
                                 <td><?= $imagen->getNumVisualizaciones()?></td>
                                 <td><?= $imagen->getNumLikes()?></td>
                                 <td><?= $imagen->getNumDownloads()?></td>
