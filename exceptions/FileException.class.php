@@ -1,8 +1,7 @@
 <?php
     class FileException extends Exception {
-        public function __construct(string $mensaje){
-            parent::__construct($mensaje);
+        public function __contruct(string $mensaje){
+            parent ::__construct( $mensaje );
         }
     }
-
 ?>
