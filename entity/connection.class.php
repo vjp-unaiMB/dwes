@@ -1,6 +1,7 @@
 <?php
 
-    require_once __DIR__ . '/../entity/app.class.php';
+    //Cuando se cree un objeto Connection lo enlazarán con el archivo Conf.php lo que devolverá los parámetros
+    //necesarios para que Aquí se cree la conexión con la función make y los datos de config.php .
     class Connection{
         public static function make(){
             try{

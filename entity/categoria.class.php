@@ -1,5 +1,6 @@
 <?php
-    require_once 'entity/database/IEntity.class.php';
+    require_once __DIR__ . '/../database/IEntity.class.php';
+    
     class Categoria implements IEntity{
         private $id;
         private $nombre;
@@ -15,11 +16,11 @@
             return $this->id;
         }
 
-        public function getNombre() {
+        public function getNombre():string {
             return $this->nombre;
         }
 
-        public function getNumImagenes() {
+        public function getNumImagenes():int {
             return $this->numImagenes;
         }
 
