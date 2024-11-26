@@ -50,12 +50,16 @@
             $this->fileName=$this->file['name'];
             $ruta=$rutaDestino.$this->fileName;
 
-            if(is_file($ruta)){
+            if(is_file($ruta)){//Si existe ya un archivo cone ste nombre, creamos una copia con formato: "nombre(4).png"
+
                 $i=1;
 
-                $cadena = $this->fileName;
                 while(is_file($ruta)){
-                    $this->fileName="(".($i++).")".$cadena;
+                    $nombreArch = explode('.',$this->fileName);
+                    $nomInicio = $nombreArch[0];
+                    $extension = '.'.$nombreArch[1];
+
+                    $this->fileName= $nomInicio . "(".($i++).")" . $extension;
                     $ruta=$rutaDestino.$this->fileName;
                 }
             }

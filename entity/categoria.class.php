@@ -13,6 +13,7 @@
     
         }
     
+        //Getters
         public function getId(){
             return $this->id;
         }
@@ -24,7 +25,20 @@
         public function getNumImagenes(){
             return $this->numImagenes;
         }
-        
+
+        //setters
+        public function setId( $id): void {
+            $this->id = $id;
+        }
+
+        public function setNombre( $nombre): void {
+            $this->nombre = $nombre;
+        }
+
+        public function setNumImagenes( $numImagenes): void {
+            $this->numImagenes = $numImagenes;
+        }
+
         public function toArray():array  {
             return[
                 'id'=> $this->getId(),

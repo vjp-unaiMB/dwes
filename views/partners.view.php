@@ -2,10 +2,10 @@
 <?php include __DIR__.'/partials/nav.part.php'; ?>
 
 <!-- Principal Content Start -->
-    <div id="galeria">
+    <div id="asociados">
    	    <div class="container">
    	        <div class="col-xs-12 col-sm-8 col-sm-push-2">
-                <h1>GALERÍA</h1>
+                <h1>ASOCIADOS</h1>
                 <hr>
                 <!-- Combruebo a ver si estoy recibiendo los datos del formulario -->
                 <?php if($_SERVER["REQUEST_METHOD"] == 'POST') : ?>
@@ -25,22 +25,16 @@
                     </div>
                 <?php endif; ?>
                 <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF'] ?>">
-                    <div class="form-group">
+                <div class="form-group">
                         <div class="col-xs-12">
-                            <label class="label-control">Imagen</label>
-                            <input class="form-control-file" type="file" name="imagen">
+                            <label class="label-control">Nombre</label>
+                            <input class="form-control-file" type="text" name="nombre">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <label class="label-control">Categoria</label>
-                            <select class="form-control" name="categoria">
-                                <?php foreach ($categorias as $categoria) : ?>
-                                    <option value="<?= $categoria->getId() ?>">
-                                        <?= $categoria-> getNombre() ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
+                            <label class="label-control">Logo</label>
+                            <input class="form-control-file" type="file" name="imagen">
                         </div>
                     </div>
                     <div class="from-group">
@@ -57,27 +51,20 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Imagen</th>
-                                <th scope="col">Categoría</th>
-                                <th scope="col">Visualizaciones</th>
-                                <th scope="col">Likes</th>
-                                <th scope="col">Descargas</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Logo</th>
+                                
                             </tr>
                         </thead>
-                        <?php foreach ($imagenes as $imagen) : ?>
+                        <?php foreach ($partners as $partner) : ?>
                             <tr>
-                                <th scope="row"><?=$imagen->getId()?></th>
+                                <th scope="row"><?=$partner->getId()?></th>
+                                <td><?= $partner->getNombre() ?></td>
                                 <td>
-                                    <img src="<?= $imagen->getUrlGallery() ?>"
-                                         alt="<?= $imagen->getDescripcion() ?>"
-                                         title="<?= $imagen->getDescripcion() ?>" 
-                                         width="100px"
-                                    >
+                                    <img src="../<?= Partner::RUTA_LOGOS . $partner->getLogo()  ?>" width="100px">
                                 </td>
-                                <td><?= $imagenRepository->getCategoria($imagen)->getNombre() //Obtenemos el nombre de la categoria al completo?></td>
-                                <td><?= $imagen->getNumVisualizaciones()?></td>
-                                <td><?= $imagen->getNumLikes()?></td>
-                                <td><?= $imagen->getNumDownloads()?></td>
+                                
+
                             </tr>
                         <?php endforeach;?>
                         </tbody>

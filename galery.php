@@ -1,4 +1,5 @@
 <?php
+
 require 'utils/utils.php';
 require_once 'entity/File.class.php';
 require_once 'entity/imagenGaleria.class.php';
@@ -27,11 +28,12 @@ try{
 
         $imagen=new File('imagen',$tiposAceptados); 
 
-        $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
-        $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
+        $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);//usamos el metodo saveUploadFile para guardar la imagen en su carpeta correspondiente (le pasamos la ruta de destino)
+
+        $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);//copyFile es otra Function de File que nos permite copiar una rchivo y pegarlo en otra dirección(le pasamos los 2 parametros)
 
         $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,$categoria);
-        $imagenRepository->save($imagenGaleria); //aplicamos la sentencia SQL de Insert en el servidor
+        $imagenRepository->guarda($imagenGaleria); //aplicamos la sentencia SQL de Insert en el servidor
         $descripcion='';
         $mensaje = "Imagen guardada ";
     }
