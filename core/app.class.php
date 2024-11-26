@@ -7,7 +7,7 @@
     class App{
         private static $container=[];
         
-        public static function bind($clave,$valor){
+        public static function bind($clave,$valor){ //crea un array con una clave + un contenido "valor"
         
             static::$container[$clave]=$valor;
         

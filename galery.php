@@ -27,9 +27,7 @@ try{
         $tiposAceptados=['image/jpeg','image/jpg','image/gif','image/png'];//Array con tipos aceptados de imagen
 
         $imagen=new File('imagen',$tiposAceptados); 
-
         $imagen->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);//usamos el metodo saveUploadFile para guardar la imagen en su carpeta correspondiente (le pasamos la ruta de destino)
-
         $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY,ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);//copyFile es otra Function de File que nos permite copiar una rchivo y pegarlo en otra dirección(le pasamos los 2 parametros)
 
         $imagenGaleria = new ImagenGaleria($imagen->getFileName(),$descripcion,$categoria);
