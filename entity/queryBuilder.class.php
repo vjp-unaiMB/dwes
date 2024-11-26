@@ -21,7 +21,7 @@
             if($pdoStatement->execute() === false){
                 throw new QueryException("No se ha podido ejecutar la consulta");
             }
-            return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
+            return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);//saca todos los resultados de una consulta en instancias de una clase específica
         }
         public function findAll(): array{
             $sql = "SELECT * from $this->table";

@@ -1,5 +1,5 @@
 <?php
-    require 'database/IEntity.class.php';
+    require __DIR__ . '/../database/IEntity.class.php';
     class imagenGaleria implements IEntity{
 
         const RUTA_IMAGENES_PORTFOLIO ='images/index/portfolio/';

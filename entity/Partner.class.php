@@ -1,5 +1,5 @@
 <?php
-    require 'database/IEntity.class.php';
+    require __DIR__ . '/../database/IEntity.class.php';
     
     class Partner implements IEntity{
 

@@ -53,14 +53,15 @@
             if(is_file($ruta)){//Si existe ya un archivo cone ste nombre, creamos una copia con formato: "nombre(4).png"
 
                 $i=1;
+                $NombreArchivoOriginal = $this->fileName; // Guardamos el nombre base para usarlo en cada iteración
 
-                while(is_file($ruta)){
-                    $nombreArch = explode('.',$this->fileName);
-                    $nomInicio = $nombreArch[0];
-                    $extension = '.'.$nombreArch[1];
+                while (is_file($ruta)) {
+                    $nombreArchivo = explode('.', $NombreArchivoOriginal); // Trabajamos siempre con el nombre original
+                    $nomInicio = $nombreArchivo[0]; // Parte inicial del nombre
+                    $extension = '.' . $nombreArchivo[1]; // Extensión del archivo
 
-                    $this->fileName= $nomInicio . "(".($i++).")" . $extension;
-                    $ruta=$rutaDestino.$this->fileName;
+                    $this->fileName = $nomInicio . "(" . ($i++) . ")" . $extension; // Creamos el nuevo nombre
+                    $ruta = $rutaDestino . $this->fileName; // Actualizamos la ruta completa
                 }
             }
             if(move_uploaded_file($this->file['tmp_name'],$ruta)===false){
