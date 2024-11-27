@@ -41,7 +41,7 @@
 			$mensaje = new Mensaje($primerNombre,$apellidos,$asunto,$email,$texto,$fecha);//Creamos el objeto de la Imagen a subirse a la BBDD, con sus parámetros
 			$mensajeRepository->save($mensaje); //aplicamos la sentencia SQL de Insert en el servidor
 			$descripcion='';
-			$mensaje = "Patrocinador guardado";
+			$mensaje = "Contacto guardado";
 		}
 	}catch(FileException $exception){
 		$errores[]=$exception->getMessage();

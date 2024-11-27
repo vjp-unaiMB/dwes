@@ -22,7 +22,7 @@
 				echo "</ul></div>";
 			}else{
 				echo "<div class='alert alert-danger'><ul>";
-				echo "<li>" . $primerNombre . "</li><li>". $apellidos . "</li><li>" . $email . "</li><li>" . $sujeto . "</li><li>" . $mensaje . "</li>";
+				echo "<li>" . $primerNombre . "</li><li>". $apellidos . "</li><li>" . $email . "</li><li>" . $asunto . "</li><li>" . $mensaje . "</li>";
 				echo "</ul></div>";
 			}
 		}		
