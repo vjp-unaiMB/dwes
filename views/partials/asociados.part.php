@@ -8,8 +8,8 @@
             <h4>Nuestros Asociados:</h4>
             <hr>
 
-            <div class="text-muted text-left">
-            <?php   print_r($partners) ;
+            <!-- <div class="text-muted text-left">
+            <?php print_r($partners) ;
                     shuffle($partners); 
                     for ($i=0; $i < 3; $i++) : ?>
 
@@ -18,7 +18,7 @@
                     <li><?= $partners[$i]->getNombre() ?></li>
                 </ul>
 
-            <?php endfor;?>
+            <?php endfor;?> -->
             </div>
         </div>
     </div>

@@ -62,7 +62,7 @@
 
         <?php 
           $idCategoria = "category3";  
-          $active = ""; 
+          $active = "";
           include __DIR__. '/partials/imagegallery.part.php';
         ?>
 
